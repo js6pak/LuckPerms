@@ -163,7 +163,7 @@ public class SqlStorage implements StorageImplementation {
     private void applySchema() throws IOException, SQLException {
         List<String> statements;
 
-        String schemaFileName = "me/lucko/luckperms/schema/" + this.connectionFactory.getImplementationName().toLowerCase() + ".sql";
+        String schemaFileName = "/me/lucko/luckperms/schema/" + this.connectionFactory.getImplementationName().toLowerCase() + ".sql";
         try (InputStream is = this.plugin.getBootstrap().getResourceStream(schemaFileName)) {
             if (is == null) {
                 throw new IOException("Couldn't locate schema file for " + this.connectionFactory.getImplementationName());

@@ -91,8 +91,8 @@ public class DependencyRegistry {
     public void applyRelocationSettings(Dependency dependency, List<Relocation> relocations) {
         Platform.Type type = this.plugin.getBootstrap().getType();
 
-        // support for LuckPerms legacy (bukkit 1.7.10)
-        if (!RelocationHandler.DEPENDENCIES.contains(dependency) && JsonElement.class.getName().startsWith("me.lucko")) {
+        // support for LuckPerms legacy (bukkit 1.7.10) and Canyon (b1.7.3)
+        if (!RelocationHandler.DEPENDENCIES.contains(dependency) && (JsonElement.class.getName().startsWith("me.lucko") || type == Platform.Type.CANYON)) {
             relocations.add(Relocation.of("guava", "com{}google{}common"));
             relocations.add(Relocation.of("gson", "com{}google{}gson"));
         }

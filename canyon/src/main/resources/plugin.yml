@@ -1,0 +1,19 @@
+name: LuckPerms
+version: ${pluginVersion}
+description: A permissions plugin
+author: Luck
+website: https://luckperms.net
+
+main: me.lucko.luckperms.canyon.LPCanyonBootstrap
+load: STARTUP
+
+# This means that all plugins that (soft-)depend on Vault, depend on LuckPerms too.
+# It in turn fixes issues where plugins using Vault cache the provided instance
+# when their plugin enables, or when they check for the presence of a service
+# provider, before LuckPerms has enabled.
+loadbefore: [Vault]
+
+commands:
+  luckperms:
+    description: Manage permissions
+    aliases: [lp, perm, perms, permission, permissions]
